@@ -43,8 +43,8 @@
 
     Run PHP Composer (version 2.1.14) in a docker container.  
     ```bash
-    $ docker run --name composer --rm --volume $(pwd)/app:/app:rw composer:2.1.14
-    $ docker run --name composer --rm -v       $(pwd)/app:/app:rw composer:2.1.14
+    $ docker run --name composer --rm --volume $(pwd)/admin-portal:/app:rw --workdir /app composer:2.1.14
+    $ docker run --name composer --rm -v       $(pwd)/admin-portal:/app:rw -w        /app composer:2.1.14
     ```
     Docker run command options:
     ```
@@ -62,22 +62,15 @@
     IMAGE: "composer:2.1.14"
     ```
 
-    
-    ```bash
-    docker run --name composer --rm --volume $(pwd)/app:/app:rw composer:2.1.14 create-project laravel/laravel="8.4.*" laravel
-    docker run --name composer --rm -v       $(pwd)/app:/app:rw composer:2.1.14 create-project laravel/laravel="8.4.*" laravel
-    ```
-
-
     Use php composer to install laravel
     ```bash
-    docker run --name composer --rm --volume $(pwd)/app:/app:rw composer:2.1.14 create-project laravel/laravel="8.4.*" laravel
-    docker run --name composer --rm -v       $(pwd)/app:/app:rw composer:2.1.14 create-project laravel/laravel="8.4.*" laravel
+    docker run --name composer --rm --volume $(pwd)/admin-portal:/app:rw --workdir /app composer:2.1.14 create-project laravel/laravel="8.4.*" .
+    docker run --name composer --rm -v       $(pwd)/admin-portal:/app:rw -w        /app composer:2.1.14 create-project laravel/laravel="8.4.*" .
     ```
 
     ```bash
-    docker run --name composer --rm --volume $(pwd)/app:/app:rw --workdir /app/laravel composer:2.1.14 install
-    docker run --name composer --rm -v       $(pwd)/app:/app:rw -w        /app/laravel composer:2.1.14 install
+    docker run --name composer --rm --volume $(pwd)/admin-portal:/app:rw --workdir /app/public composer:2.1.14 install
+    docker run --name composer --rm -v       $(pwd)/admin-portal:/app:rw -w        /app/public composer:2.1.14 install
     ```
 
 8. Docker build
