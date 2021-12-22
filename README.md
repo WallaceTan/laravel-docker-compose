@@ -69,8 +69,8 @@
     ```
 
     ```bash
-    docker run --name composer --rm --volume $(pwd)/admin-portal:/app:rw --workdir /app/public composer:2.1.14 install
-    docker run --name composer --rm -v       $(pwd)/admin-portal:/app:rw -w        /app/public composer:2.1.14 install
+    docker run --name composer --rm --volume $(pwd)/admin-portal:/app:rw --workdir /app composer:2.1.14 install
+    docker run --name composer --rm -v       $(pwd)/admin-portal:/app:rw -w        /app composer:2.1.14 install
     ```
 
 8. Docker build
